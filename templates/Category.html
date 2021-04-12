@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" type = "text/css"href="{{ url_for('static', filename = 'category.css') }}">
+    <style>
+        body{
+            background-image: url("{{url_for('static', filename='2.jpg')}}");
+            background-repeat: no-repeat;
+            background-size : 800px 700px;
+        }
+        #CategoryContainer{
+            position: fixed;
+            top:0;
+            left:750px;
+            font-size: 30px;
+            font-weight: bold;
+            font-style: italic;
+            display: block;
+            color : Crimson;
+        }
+        .list{
+            position : fixed;
+            left : 800px;
+            font-size : 30px;
+            display : block;
+            color : Crimson;
+        }
+
+        footer{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;
+            clear:both;
+            color: Crimson;
+        }
+        a:link{
+            color : Crimson;
+        }
+        a:visited{
+            color : Crimson;
+        }
+    </style>
+    <title>Grocery Categories</title>
+</head>
+<body>
+    <div id="CategoryContainer">
+
+        <h1>
+            Grocery Categories :
+
+        </h1>
+        <div class = "list">
+            <ul>
+                {% for key in category %}
+                {% if key == 'Produce' %}
+                <li><a href = "http://127.0.0.1:5000/Category/Produce"> {{ key }} </a></li>
+                {% else %}
+                <li><a href = "#"> {{ key }} </a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+    <footer>
+        ( This Prototype works for Produce Category Only though could be implemented for other Categories. ) <br>
+        &copy; Copyright 2020 Recipe Recommender
+    </footer>
+</body>
+</html>
